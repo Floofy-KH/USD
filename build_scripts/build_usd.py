@@ -386,7 +386,7 @@ def RunCMake(context, force, extraArgs = None):
     if generator is not None:
         generator = '-G "{gen}"'.format(gen=generator)
 
-    if IsVisualStudio2019OrGreater():
+    if "Visual Studio" in generator and IsVisualStudio2019OrGreater():
         generator = generator + " -A x64"
 
     toolset = context.cmakeToolset
